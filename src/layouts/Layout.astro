@@ -1,9 +1,13 @@
 ---
 interface Props {
   title?: string;
+  description?: string;
 }
 
-const { title = "RenderATL 2026 Food Guide" } = Astro.props;
+const { 
+  title = "RenderATL 2026 Food Guide | Best Restaurants Near the Conference in Atlanta",
+  description = "The unofficial guide to the best restaurants near RenderATL 2026 in Atlanta. Curated picks for breakfast, lunch, dinner, soul food, and fine dining near AmericasMart and downtown Atlanta."
+} = Astro.props;
 ---
 
 <!doctype html>
@@ -11,14 +15,59 @@ const { title = "RenderATL 2026 Food Guide" } = Astro.props;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Curated eats for RenderATL 2026 conference attendees in Atlanta" />
+    <meta name="description" content={description} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href="https://renderatlrestaurants.netlify.app/" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content="https://renderatlrestaurants.netlify.app/" />
+    <meta property="og:site_name" content="Mellie's RenderATL Food Guide" />
+
+    <meta property="og:image" content="https://renderatlrestaurants.netlify.app/og-image.jpg" />
+    <meta property="og:image:width" content="1440" />
+    <meta property="og:image:height" content="960" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content="https://renderatlrestaurants.netlify.app/og-image.jpg" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <title>{title}</title>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Mellie's Unofficial RenderATL 2026 Restaurant Guide",
+      "description": description,
+      "url": "https://renderatlrestaurants.netlify.app/",
+      "about": {
+        "@type": "Event",
+        "name": "RenderATL 2026",
+        "startDate": "2026-06-11",
+        "endDate": "2026-06-13",
+        "location": {
+          "@type": "Place",
+          "name": "AmericasMart Atlanta",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "240 Peachtree St NW",
+            "addressLocality": "Atlanta",
+            "addressRegion": "GA",
+            "postalCode": "30303"
+          }
+        }
+      }
+    })} />
   </head>
   <body>
     <slot />
