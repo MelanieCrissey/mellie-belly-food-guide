@@ -1,0 +1,46 @@
+---
+import RestaurantCard from './RestaurantCard.astro';
+
+interface CategorySectionProps {
+  title: string;
+  icon: string;
+  description: string;
+  restaurants: Array<{
+    id: string;
+    name: string;
+    category: string;
+    rating: number;
+    priceLevel: number;
+    mellieVerified: boolean;
+    mellieDescription: string;
+    description: string;
+    bestFor: string[];
+    address: string;
+    lat: number;
+    lng: number;
+    instagram: string;
+    michelin: string;
+    heroImage: string;
+  }>;
+}
+
+const { title, icon, description, restaurants } = Astro.props;
+
+const sectionId = title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/-+/g, '-');
+---
+
+<section class="mb-16" id={sectionId}>
+  <div class="mb-8">
+    <div class="flex items-center gap-3 mb-3">
+      <span class="text-3xl md:text-4xl">{icon}</span>
+      <h2 class="font-display text-3xl md:text-4xl font-black uppercase tracking-tight">{title}</h2>
+    </div>
+    <p class="text-gray-600 text-lg">{description}</p>
+  </div>
+  
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    {restaurants.map((restaurant) => (
+      <RestaurantCard restaurant={restaurant} />
+    ))}
+  </div>
+</section>

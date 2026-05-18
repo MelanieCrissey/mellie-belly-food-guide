@@ -1,0 +1,67 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import CategorySection from '../components/CategorySection.astro';
+import RestaurantModal from '../components/RestaurantModal.astro';
+import restaurants from '../data/restaurants.json';
+
+const categories = [
+  {
+    id: 'near-venue',
+    title: 'Near the venue',
+    icon: '📍',
+    description: 'Short walk from AmericasMart and Hotel Indigo Downtown',
+    restaurants: restaurants.filter(r => r.category === 'near-venue')
+  },
+  {
+    id: 'short-ride',
+    title: 'Short ride away',
+    icon: '🚌',
+    description: 'Take MARTA or rideshare',
+    restaurants: restaurants.filter(r => r.category === 'short-ride')
+  },
+  {
+    id: 'soul-food',
+    title: 'Soul food',
+    icon: '🥬',
+    description: 'Put the South in your mouth',
+    restaurants: restaurants.filter(r => r.category === 'soul-food')
+  },
+  {
+    id: 'spend-maxxing',
+    title: 'Corporate spendmaxxing',
+    icon: '💸',
+    description: 'Expensive but nothing compared to your token usage last month',
+    restaurants: restaurants.filter(r => r.category === 'spend-maxxing')
+  }
+];
+---
+
+<Layout>
+  <div class="min-h-screen">
+    <Header />
+    
+    <main class="max-w-7xl mx-auto px-4 py-12">
+      <!-- Restaurant Categories -->
+      {categories.map((category) => (
+        <CategorySection 
+          title={category.title}
+          icon={category.icon}
+          description={category.description}
+          restaurants={category.restaurants}
+        />
+      ))}
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-brand-black text-white py-8 px-4 mt-12 border-t-4 border-brand-pink">
+      <div class="max-w-7xl mx-auto text-center">
+        <p class="text-white/80 font-display font-bold uppercase tracking-wider">Made for the community by <a href="https://bsky.app/profile/melaniecrissey.com" target="_blank" rel="noopener noreferrer" class="text-white underline">@MelanieCrissey</a></p>
+        <p class="text-white/50 text-sm mt-2">Coded with Kilo. Contribute on GitHub.</p>
+      </div>
+    </footer>
+
+    <!-- Modal -->
+    <RestaurantModal />
+  </div>
+</Layout>

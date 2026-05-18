@@ -1,0 +1,53 @@
+---
+interface MellieBadgeProps {
+  verified: boolean;
+  description?: string;
+}
+
+const { verified, description } = Astro.props;
+
+if (!verified) return null;
+
+const tooltipText = description || "Personally recommended";
+---
+
+<span class="mellie-badge-wrapper relative inline-flex items-center gap-1.5 cursor-help">
+  <img src="/mellie-verified.svg" alt="Mellie Verified" class="w-5 h-5" />
+  <span class="text-xs font-semibold">Mellie verified</span>
+  <span class="mellie-tooltip">{tooltipText}</span>
+</span>
+
+<style>
+  .mellie-badge-wrapper {
+    position: static;
+  }
+
+  .mellie-tooltip {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(26, 26, 26, 0.92);
+    color: #fff;
+    font-size: 0.875rem;
+    font-weight: 400;
+    padding: 16px;
+    text-align: center;
+    z-index: 20;
+    pointer-events: none;
+    transition: opacity 0.2s, visibility 0.2s;
+    white-space: normal;
+    line-height: 1.4;
+  }
+
+  .mellie-badge-wrapper:hover .mellie-tooltip {
+    visibility: visible;
+    opacity: 1;
+  }
+</style>

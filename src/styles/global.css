@@ -1,0 +1,183 @@
+@import "tailwindcss";
+
+:root {
+  --color-brand-pink: #ef7ad5;
+  --color-brand-yellow: #ffe08c;
+  --color-brand-teal: #23c1b4;
+  --color-brand-black: #1f1f1f;
+  --color-brand-white: #fff;
+  --color-brand-dark-bg: #141414;
+}
+
+body {
+  background-color: var(--color-brand-white);
+  font-family: 'Roboto', system-ui, -apple-system, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.font-display {
+  font-family: 'Space Grotesk', 'Mortend', system-ui, sans-serif;
+}
+
+.font-body {
+  font-family: 'Roboto', system-ui, sans-serif;
+}
+
+/* Brand color utilities */
+.bg-brand-black {
+  background-color: var(--color-brand-black);
+}
+
+.bg-brand-pink {
+  background-color: var(--color-brand-pink);
+}
+
+.bg-brand-yellow {
+  background-color: var(--color-brand-yellow);
+}
+
+.bg-brand-teal {
+  background-color: var(--color-brand-teal);
+}
+
+.text-brand-black {
+  color: var(--color-brand-black);
+}
+
+.text-brand-pink {
+  color: var(--color-brand-pink);
+}
+
+.text-brand-yellow {
+  color: var(--color-brand-yellow);
+}
+
+.text-brand-teal {
+  color: var(--color-brand-teal);
+}
+
+.border-brand-black {
+  border-color: var(--color-brand-black);
+}
+
+.border-brand-pink {
+  border-color: var(--color-brand-pink);
+}
+
+.border-brand-yellow {
+  border-color: var(--color-brand-yellow);
+}
+
+.border-brand-teal {
+  border-color: var(--color-brand-teal);
+}
+
+/* Brutalist shadow utilities */
+.shadow-brutal {
+  box-shadow: 4px 4px 0px #000;
+}
+
+.shadow-brutal-pink {
+  box-shadow: 4px 4px 0px var(--color-brand-pink);
+}
+
+.shadow-brutal-yellow {
+  box-shadow: 4px 4px 0px var(--color-brand-yellow);
+}
+
+.shadow-brutal-hover {
+  box-shadow: 4px 4px 0px #000;
+  transition: all 0.15s ease;
+}
+
+.shadow-brutal-hover:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px #000;
+}
+
+/* Category border colors */
+.category-near-venue {
+  border-color: var(--color-brand-yellow);
+}
+
+.category-short-ride {
+  border-color: var(--color-brand-teal);
+}
+
+.category-soul-food {
+  border-color: var(--color-brand-pink);
+}
+
+.category-spend-maxxing {
+  border-color: var(--color-brand-black);
+}
+
+/* Mellie badge */
+.mellie-badge {
+  background: linear-gradient(135deg, #ef7ad5, #d45cb8, #be3e9e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Modal styles */
+.modal-backdrop {
+  transition: opacity 0.2s ease-in-out;
+}
+
+.modal-content {
+  transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
+}
+
+/* Leaflet custom styles */
+.leaflet-popup-content-wrapper {
+  border-radius: 0;
+  border: 2px solid #000;
+  box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.2);
+}
+
+.leaflet-popup-content {
+  margin: 12px;
+  font-family: 'Roboto', system-ui, -apple-system, sans-serif;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-brand-white);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-brand-pink);
+  border: 2px solid var(--color-brand-white);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #d45cb8;
+}
+
+/* Tag styles */
+.tag {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: 2px solid #000;
+  background: var(--color-brand-yellow);
+}
+
+.tag-pink {
+  background: var(--color-brand-pink);
+}
+
+.tag-teal {
+  background: var(--color-brand-teal);
+}
