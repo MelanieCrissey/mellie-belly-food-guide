@@ -53,7 +53,7 @@
     "description": "Local coffee and carbs at Atlanta Tech Village Sylvan.",
     "bestFor": [
       "coffee",
-      "breakfast to-go"
+      "breakfast"
     ],
     "instagram": "",
     "michelin": "",
@@ -177,7 +177,7 @@
     "description": "Proper wine bar with great pairing dishes.",
     "bestFor": [
       "dinner",
-      "date-night"
+      "wine"
     ],
     "instagram": "https://www.instagram.com/madeiraparkatl/?hl=en",
     "michelin": "",
@@ -197,8 +197,7 @@
     "description": "Famous wood-fired pizza.",
     "bestFor": [
       "lunch",
-      "pizza",
-      "casual"
+      "pizza"
     ],
     "instagram": "https://www.instagram.com/gioantico/",
     "michelin": "",
@@ -238,9 +237,8 @@
     "mellieDescription": "Walkable from MARTA",
     "description": "Labneh, lamb and pastas.",
     "bestFor": [
-      "lunch",
       "dinner",
-      "seafood"
+      "wine"
     ],
     "instagram": "https://www.instagram.com/kittydareatl/",
     "michelin": "",
@@ -261,7 +259,6 @@
     "bestFor": [
       "drinks",
       "dinner",
-      "cocktails"
     ],
     "instagram": "",
     "michelin": "",
@@ -302,7 +299,7 @@
     "description": "An Atlanta institution.",
     "bestFor": [
       "lunch",
-      "southern",
+      "soul-food",
       "historic"
     ],
     "instagram": "",
@@ -344,7 +341,7 @@
     "description": "Atlanta's fanciest fine dining since 1993.",
     "bestFor": [
       "dinner",
-      "fine-dining",
+      "tasting-menu",
       "special-occasion"
     ],
     "instagram": "",
