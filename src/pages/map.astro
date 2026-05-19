@@ -1,0 +1,358 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import restaurants from '../data/restaurants.json';
+
+// Same tag logic as FilterBar
+const tagCounts = restaurants.flatMap(r => r.bestFor).reduce((acc: Record<string, number>, tag: string) => {
+  acc[tag] = (acc[tag] || 0) + 1;
+  return acc;
+}, {} as Record<string, number>);
+const pinnedOrder = ['breakfast', 'lunch', 'dinner'];
+const allTags = Object.entries(tagCounts)
+  .filter(([_, count]) => count >= 2)
+  .map(([tag]) => tag)
+  .sort((a, b) => {
+    const ai = pinnedOrder.indexOf(a);
+    const bi = pinnedOrder.indexOf(b);
+    if (ai !== -1 && bi !== -1) return ai - bi;
+    if (ai !== -1) return -1;
+    if (bi !== -1) return 1;
+    return a.localeCompare(b);
+  });
+const priceLevels = [1, 2, 3, 4];
+---
+
+<Layout title="Map | RenderATL 2026 Food Guide" description="Map of all recommended restaurants near RenderATL 2026 in Atlanta.">
+  <div class="min-h-screen">
+    <Header />
+
+    <!-- Filter bar -->
+    <div class="sticky top-0 z-40 bg-white border-b-2 border-brand-black py-3 px-4 shadow-md" id="map-filter-bar">
+      <div class="max-w-7xl mx-auto">
+        <div class="flex items-center gap-4">
+          <button
+            id="map-filter-toggle"
+            class="flex items-center gap-2 font-display text-sm font-bold uppercase tracking-wider text-brand-black cursor-pointer hover:text-brand-pink transition-colors"
+            aria-expanded="false"
+          >
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+              <circle cx="8" cy="6" r="2" fill="currentColor" stroke="none"/>
+              <circle cx="14" cy="12" r="2" fill="currentColor" stroke="none"/>
+              <circle cx="10" cy="18" r="2" fill="currentColor" stroke="none"/>
+            </svg>
+            <span>Filter</span>
+            <svg class="w-3 h-3 transition-transform duration-200" id="map-filter-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </button>
+
+          <a
+            href="/"
+            class="font-display text-sm font-bold uppercase tracking-wider text-brand-black hover:text-brand-pink transition-colors"
+          >
+            ← Back to list
+          </a>
+        </div>
+
+        <!-- Collapsible filter options -->
+        <div id="map-filter-options" class="hidden mt-3 flex flex-col gap-3">
+          <!-- Price Filter -->
+          <div class="flex items-center gap-4 flex-wrap">
+            <span class="font-display text-sm font-bold uppercase tracking-wider text-brand-black shrink-0">Price:</span>
+            <div class="flex gap-3 flex-wrap">
+              {priceLevels.map((level) => (
+                <button
+                  class="map-filter-price-btn font-display text-sm font-bold cursor-pointer transition-colors"
+                  data-price={level}
+                  aria-pressed="false"
+                >
+                  {'$'.repeat(level)}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <!-- Tag Filter -->
+          <div class="flex items-center gap-3 flex-wrap">
+            <span class="font-display text-sm font-bold uppercase tracking-wider text-brand-black shrink-0">Vibe:</span>
+            <div class="flex gap-1.5 flex-wrap">
+              {allTags.map((tag) => (
+                <button
+                  class="map-filter-tag-btn tag cursor-pointer hover:opacity-80 transition-opacity"
+                  data-tag={tag}
+                  aria-pressed="false"
+                >
+                  {tag.replaceAll("-", " ")}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <!-- Results count and clear -->
+          <div class="flex items-center gap-4 h-6">
+            <span id="map-filter-results-count" class="invisible font-display text-sm font-bold text-brand-black"></span>
+            <button
+              id="map-clear-filters"
+              class="invisible font-display text-xs font-bold uppercase tracking-wider text-brand-pink underline cursor-pointer hover:text-brand-black transition-colors"
+            >
+              Clear all filters
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Map -->
+    <main class="max-w-7xl mx-auto px-4 py-8">
+      <div id="map" class="w-full border-2 border-brand-black shadow-brutal" style="height: 70vh; min-height: 400px;"></div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-brand-black text-white py-8 px-4 mt-12 border-t-4 border-brand-pink">
+      <div class="max-w-7xl mx-auto text-center">
+        <p class="text-white/80 font-display font-bold uppercase tracking-wider">Made for the community by <a href="https://bsky.app/profile/melaniecrissey.com" target="_blank" rel="noopener noreferrer" class="text-white underline">@MelanieCrissey</a></p>
+        <p class="text-white/50 text-sm mt-2">Coded with Kilo. <a href="https://github.com/MelanieCrissey/mellie-belly-food-guide" class="text-white underline">Contribute on GitHub.</a></p>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Restaurant data for JS -->
+  <script define:vars={{ restaurants }}>
+    window.__restaurants = restaurants;
+  </script>
+
+  <style>
+    .map-filter-price-btn[aria-pressed="false"] {
+      color: var(--color-brand-black);
+      opacity: 0.5;
+    }
+
+    .map-filter-price-btn[aria-pressed="true"] {
+      color: var(--color-brand-black);
+      opacity: 1;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-color: var(--color-brand-pink);
+      text-decoration-thickness: 2px;
+    }
+
+    .map-filter-price-btn:hover {
+      opacity: 1;
+    }
+
+    .map-filter-tag-btn[aria-pressed="false"] {
+      background: white;
+      color: var(--color-brand-black);
+      border-color: #000;
+    }
+
+    .map-filter-tag-btn[aria-pressed="true"] {
+      background: var(--color-brand-yellow);
+      color: var(--color-brand-black);
+      border-color: #000;
+    }
+  </style>
+
+  <script>
+    const VENUE_COORDS: [number, number] = [33.7614, -84.3891];
+
+    const categoryColors: Record<string, string> = {
+      'near-venue': '#F59E0B',
+      'short-ride': '#3B82F6',
+      'soul-food': '#8B5CF6',
+      'spend-maxxing': '#EF4444'
+    };
+
+    const categoryLabels: Record<string, string> = {
+      'near-venue': 'Near venue',
+      'short-ride': 'Short ride',
+      'soul-food': 'Soul food',
+      'spend-maxxing': 'Spendmaxxing'
+    };
+
+    function initMap() {
+      const L = (window as any).L;
+      if (!L) {
+        setTimeout(initMap, 100);
+        return;
+      }
+
+      const restaurants = (window as any).__restaurants;
+      const map = L.map('map').setView(VENUE_COORDS, 14);
+
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; OpenStreetMap contributors'
+      }).addTo(map);
+
+      // Venue marker
+      const venueIcon = L.divIcon({
+        html: `<div style="background:#1f1f1f;color:white;padding:4px 10px;border-radius:4px;font-size:12px;font-weight:bold;box-shadow:0 2px 8px rgba(0,0,0,0.3);white-space:nowrap;border:2px solid #ef7ad5;">📍 RenderATL</div>`,
+        className: '',
+        iconSize: [150, 30],
+        iconAnchor: [75, 15]
+      });
+      L.marker(VENUE_COORDS, { icon: venueIcon }).addTo(map);
+
+      // Store markers with their restaurant data for filtering
+      const markerData: Array<{ marker: any; restaurant: any }> = [];
+
+      restaurants.forEach((restaurant: any) => {
+        const color = categoryColors[restaurant.category] || '#F59E0B';
+
+        const markerIcon = L.divIcon({
+          html: `<div style="background:${color};border:2px solid #1f1f1f;border-radius:50%;width:20px;height:20px;box-shadow:0 2px 6px rgba(0,0,0,0.3);"></div>`,
+          className: '',
+          iconSize: [20, 20],
+          iconAnchor: [10, 10]
+        });
+
+        const popupContent = `
+          <div style="font-family:'Space Grotesk',system-ui,sans-serif;min-width:180px;">
+            <strong style="font-size:14px;">${restaurant.name}</strong><br>
+            <span style="font-size:12px;color:#666;">${categoryLabels[restaurant.category] || ''}</span><br>
+            <span style="color:#1f1f1f;font-weight:bold;">${'$'.repeat(restaurant.priceLevel)}</span>
+            <span style="color:#666;font-size:12px;"> · ${restaurant.rating.toFixed(1)} ★</span><br>
+            <p style="font-size:12px;color:#444;margin:4px 0;">${restaurant.description}</p>
+            <div style="display:flex;align-items:center;gap:6px;margin-top:4px;">
+              <a href="https://www.google.com/maps/dir/?api=1&origin=230+John+Portman+Blwd+NW+Building+2,+Atlanta,+GA+30303&destination=${encodeURIComponent(restaurant.address)}"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 style="color:#3B82F6;font-size:12px;text-decoration:underline;">
+                Get directions
+              </a>
+              <button
+                onclick="navigator.clipboard.writeText('${restaurant.address.replace(/'/g, "\\'")}').then(() => { this.textContent = '✓ Copied'; setTimeout(() => { this.textContent = 'Copy address'; }, 1500); })"
+                style="background:none;border:1px solid #ccc;border-radius:3px;padding:1px 6px;font-size:11px;cursor:pointer;color:#666;">
+                Copy address
+              </button>
+            </div>
+          </div>
+        `;
+
+        const marker = L.marker([restaurant.lat, restaurant.lng], { icon: markerIcon })
+          .addTo(map)
+          .bindPopup(popupContent);
+
+        markerData.push({ marker, restaurant });
+      });
+
+      // Legend
+      const legend = L.control({ position: 'bottomleft' });
+      legend.onAdd = () => {
+        const div = L.DomUtil.create('div', '');
+        div.style.cssText = 'background:white;padding:10px 14px;border:2px solid #1f1f1f;box-shadow:4px 4px 0 #000;font-family:"Space Grotesk",system-ui,sans-serif;font-size:12px;';
+        div.innerHTML = Object.entries(categoryColors).map(([cat, color]) =>
+          `<div style="display:flex;align-items:center;gap:6px;margin-bottom:4px;">
+            <span style="width:12px;height:12px;border-radius:50%;background:${color};border:2px solid #1f1f1f;display:inline-block;"></span>
+            <span style="font-weight:600;">${categoryLabels[cat]}</span>
+          </div>`
+        ).join('');
+        return div;
+      };
+      legend.addTo(map);
+
+      // --- Filter logic ---
+      const filterToggle = document.getElementById('map-filter-toggle');
+      const filterOptions = document.getElementById('map-filter-options');
+      const filterChevron = document.getElementById('map-filter-chevron');
+      const priceButtons = document.querySelectorAll('.map-filter-price-btn');
+      const tagButtons = document.querySelectorAll('.map-filter-tag-btn');
+      const clearButton = document.getElementById('map-clear-filters');
+      const resultsCount = document.getElementById('map-filter-results-count');
+
+      let activePrices: Set<number> = new Set();
+      let activeTags: Set<string> = new Set();
+
+      function expandPanel() {
+        filterToggle?.setAttribute('aria-expanded', 'true');
+        filterOptions?.classList.remove('hidden');
+        filterChevron?.style.setProperty('transform', 'rotate(180deg)');
+      }
+
+      function collapsePanel() {
+        filterToggle?.setAttribute('aria-expanded', 'false');
+        filterOptions?.classList.add('hidden');
+        filterChevron?.style.setProperty('transform', '');
+      }
+
+      filterToggle?.addEventListener('click', () => {
+        const isExpanded = filterToggle.getAttribute('aria-expanded') === 'true';
+        const hasFilters = activePrices.size > 0 || activeTags.size > 0;
+
+        if (isExpanded && !hasFilters) {
+          collapsePanel();
+        } else if (!isExpanded) {
+          expandPanel();
+        }
+      });
+
+      function updateMapFilters() {
+        const hasFilters = activePrices.size > 0 || activeTags.size > 0;
+        clearButton?.classList.toggle('invisible', !hasFilters);
+        resultsCount?.classList.toggle('invisible', !hasFilters);
+
+        if (hasFilters) {
+          expandPanel();
+        }
+
+        let visibleCount = 0;
+        markerData.forEach(({ marker, restaurant }) => {
+          const priceMatch = activePrices.size === 0 || activePrices.has(restaurant.priceLevel);
+          const tagMatch = activeTags.size === 0 || restaurant.bestFor?.some((t: string) => activeTags.has(t));
+          const visible = priceMatch && tagMatch;
+
+          if (visible) {
+            marker.addTo(map);
+            visibleCount++;
+          } else {
+            map.removeLayer(marker);
+          }
+        });
+
+        if (resultsCount) {
+          resultsCount.textContent = `${visibleCount} result${visibleCount !== 1 ? 's' : ''}`;
+        }
+      }
+
+      priceButtons.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const price = parseInt((btn as HTMLElement).dataset.price || '0');
+          if (activePrices.has(price)) {
+            activePrices.delete(price);
+            btn.setAttribute('aria-pressed', 'false');
+          } else {
+            activePrices.add(price);
+            btn.setAttribute('aria-pressed', 'true');
+          }
+          updateMapFilters();
+        });
+      });
+
+      tagButtons.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const tag = (btn as HTMLElement).dataset.tag || '';
+          if (activeTags.has(tag)) {
+            activeTags.delete(tag);
+            btn.setAttribute('aria-pressed', 'false');
+          } else {
+            activeTags.add(tag);
+            btn.setAttribute('aria-pressed', 'true');
+          }
+          updateMapFilters();
+        });
+      });
+
+      clearButton?.addEventListener('click', () => {
+        activePrices.clear();
+        activeTags.clear();
+        priceButtons.forEach((btn) => btn.setAttribute('aria-pressed', 'false'));
+        tagButtons.forEach((btn) => btn.setAttribute('aria-pressed', 'false'));
+        updateMapFilters();
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', initMap);
+  </script>
+</Layout>

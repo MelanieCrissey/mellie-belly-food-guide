@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
+import FilterBar from '../components/FilterBar.astro';
 import CategorySection from '../components/CategorySection.astro';
 import RestaurantModal from '../components/RestaurantModal.astro';
 import restaurants from '../data/restaurants.json';
@@ -40,6 +41,7 @@ const categories = [
 <Layout>
   <div class="min-h-screen">
     <Header />
+    <FilterBar />
     
     <main class="max-w-7xl mx-auto px-4 py-12">
       <!-- Restaurant Categories -->
@@ -56,8 +58,8 @@ const categories = [
     <!-- Footer -->
     <footer class="bg-brand-black text-white py-8 px-4 mt-12 border-t-4 border-brand-pink">
       <div class="max-w-7xl mx-auto text-center">
-        <p class="text-white/80 font-display font-bold uppercase tracking-wider">Made for the community by <a href="https://bsky.app/profile/melaniecrissey.com" target="_blank" rel="noopener noreferrer" class="text-white underline">@MelanieCrissey</a></p>
-        <p class="text-white/50 text-sm mt-2">Coded with Kilo. <a href="https://github.com/MelanieCrissey/mellie-belly-food-guide">Public on GitHub.</a></p>
+        <p class="text-white/80 font-display font-bold uppercase tracking-wider">For the community by <a href="https://bsky.app/profile/melaniecrissey.com" target="_blank" rel="noopener noreferrer" class="text-white underline">@MelanieCrissey</a></p>
+        <p class="text-white/50 text-sm mt-2">Developed with Kilo. Hosted on Netlify. <a href="https://github.com/MelanieCrissey/mellie-belly-food-guide" class="text-white underline">Contribute on GitHub.</a></p>
       </div>
     </footer>
 
