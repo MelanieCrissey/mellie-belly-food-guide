@@ -23,7 +23,7 @@
 <script>
   import restaurants from '../data/restaurants.json';
   
-  const HOTEL_COORDS: [number, number] = [33.7580, -84.3963];
+  const HOTEL_COORDS: [number, number] = [33.7614, -84.3891];
   
   const categoryColors: Record<string, string> = {
     'near-venue': '#F59E0B',
@@ -53,7 +53,7 @@
 
     // Hotel marker
     const hotelIcon = L.divIcon({
-      html: `<div style="background:#1E3A5F;color:white;padding:4px 8px;border-radius:16px;font-size:12px;font-weight:bold;box-shadow:0 2px 8px rgba(0,0,0,0.3);white-space:nowrap;">🏨 Hotel Indigo</div>`,
+      html: `<div style="background:#1E3A5F;color:white;padding:4px 8px;border-radius:16px;font-size:12px;font-weight:bold;box-shadow:0 2px 8px rgba(0,0,0,0.3);white-space:nowrap;">📍 RenderATL</div>`,
       className: '',
       iconSize: [120, 30],
       iconAnchor: [60, 15]
@@ -175,6 +175,24 @@
     (modal.querySelector('#modal-name') as HTMLElement).textContent = restaurant.name;
     (modal.querySelector('#modal-address-text') as HTMLElement).textContent = restaurant.address;
     (modal.querySelector('#modal-address') as HTMLAnchorElement).href = `https://www.google.com/maps/dir/?api=1&origin=230+John+Portman+Blwd+NW+Building+2,+Atlanta,+GA+30303&destination=${encodeURIComponent(restaurant.address)}`;
+    
+    // Copy address button
+    const copyBtn = modal.querySelector('#modal-copy-address') as HTMLButtonElement;
+    if (copyBtn) {
+      const newCopyBtn = copyBtn.cloneNode(true) as HTMLButtonElement;
+      copyBtn.parentNode?.replaceChild(newCopyBtn, copyBtn);
+      newCopyBtn.addEventListener('click', () => {
+        navigator.clipboard.writeText(restaurant.address).then(() => {
+          newCopyBtn.querySelector('.copy-icon')?.classList.add('hidden');
+          newCopyBtn.querySelector('.check-icon')?.classList.remove('hidden');
+          setTimeout(() => {
+            newCopyBtn.querySelector('.copy-icon')?.classList.remove('hidden');
+            newCopyBtn.querySelector('.check-icon')?.classList.add('hidden');
+          }, 1500);
+        });
+      });
+    }
+
     (modal.querySelector('#modal-description') as HTMLElement).textContent = restaurant.description;
     (modal.querySelector('#modal-rating') as HTMLElement).textContent = 
       `${'★'.repeat(Math.floor(restaurant.rating))} (${restaurant.rating.toFixed(1)})`;

@@ -197,6 +197,7 @@
     "description": "Famous wood-fired pizza.",
     "bestFor": [
       "lunch",
+      "dinner",
       "pizza"
     ],
     "instagram": "https://www.instagram.com/gioantico/",
@@ -278,7 +279,6 @@
     "description": "Historic soul food cafe, serving classics since 1947.",
     "bestFor": [
       "lunch",
-      "soul-food",
       "historic"
     ],
     "instagram": "",
@@ -299,7 +299,6 @@
     "description": "An Atlanta institution.",
     "bestFor": [
       "lunch",
-      "soul-food",
       "historic"
     ],
     "instagram": "",
@@ -320,8 +319,8 @@
     "description": "Modern soul food restaurant with novelty cocktails.",
     "bestFor": [
       "dinner",
-      "soul-food",
-      "special-occasion"
+      "special-occasion",
+      "drinks"
     ],
     "instagram": "https://www.instagram.com/twistedsoulcookhouse/",
     "michelin": "",
