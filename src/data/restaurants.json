@@ -4,17 +4,20 @@
     "name": "Waffle House",
     "category": "near-venue",
     "address": "135 Andrew Young International Blvd NW, Atlanta, GA 30303",
-    "lat": 33.7600,
+    "lat": 33.76,
     "lng": -84.3933,
     "rating": 3.9,
     "priceLevel": 1,
     "mellieVerified": true,
     "mellieDescription": "Chocolate chip waffle. Hashbrowns smothered, covered, peppered.",
     "description": "Iconic diner serving 24/7.",
-    "bestFor": ["breakfast", "late-night"],
+    "bestFor": [
+      "breakfast",
+      "late-night"
+    ],
     "instagram": "",
     "michelin": "",
-    "heroImage": "https://external-preview.redd.it/clark-atlanta-study-finds-waffle-house-worker-strain-v0-zXCMI5WEIDVeM5iWJeS0lkU727F_fKgCpUEKG3YIWx8.jpeg?width=1080&crop=smart&auto=webp&s=46b57867f968c18d62716ff5bc488e6303348419"
+    "heroImage": "/images/waffle-house.webp"
   },
   {
     "id": "teds-montana-grill",
@@ -28,10 +31,13 @@
     "mellieVerified": true,
     "mellieDescription": "RIP Ted Turner",
     "description": "Reliable local chain serving bison burgers and salads.",
-    "bestFor": ["lunch", "business"],
+    "bestFor": [
+      "lunch",
+      "business"
+    ],
     "instagram": "",
     "michelin": "",
-    "heroImage": "https://marieletseat.com/wp-content/uploads/2012/08/img_4061.jpg?w=840&h=1&crop=1"
+    "heroImage": "/images/teds-montana-grill.webp"
   },
   {
     "id": "spiller-park-atv",
@@ -45,10 +51,13 @@
     "mellieVerified": true,
     "mellieDescription": "Iced matcha, sourdough toast with jam",
     "description": "Local coffee and carbs at Atlanta Tech Village Sylvan.",
-    "bestFor": ["coffee", "breakfast to-go"],
+    "bestFor": [
+      "coffee",
+      "breakfast to-go"
+    ],
     "instagram": "",
     "michelin": "",
-    "heroImage": "https://images.squarespace-cdn.com/content/v1/564ae693e4b0ee169f7d7471/055d120f-e293-43ef-ac76-e27d6b7d83f3/DSC09223.jpg?format=1000w"
+    "heroImage": "/images/spiller-park-atv.webp"
   },
   {
     "id": "tyde-tate-kitchen",
@@ -62,10 +71,13 @@
     "mellieVerified": false,
     "mellieDescription": "",
     "description": "Casual Thai food, dine-in or takeout.",
-    "bestFor": ["lunch", "Thai"],
+    "bestFor": [
+      "lunch",
+      "Thai"
+    ],
     "instagram": "",
     "michelin": "",
-    "heroImage": "https://popmenucloud.com/cdn-cgi/image/width=1920,height=1920,format=auto,fit=scale-down/pilrnguy/94009d1f-6886-4021-b13c-9f28f1b46293.jpg"
+    "heroImage": "/images/tyde-tate-kitchen.webp"
   },
   {
     "id": "by-george",
@@ -73,16 +85,21 @@
     "category": "near-venue",
     "address": "127 Peachtree St NE, Atlanta, GA 30303",
     "lat": 33.7566,
-    "lng": -84.3880,
+    "lng": -84.388,
     "rating": 4.5,
     "priceLevel": 3,
     "mellieVerified": true,
     "mellieDescription": "Beautiful historic space with a contemporary menu.",
     "description": "Bar and restaurant at The Candler Hotel.",
-    "bestFor": ["breakfast","lunch","dinner","drinks"],
+    "bestFor": [
+      "breakfast",
+      "lunch",
+      "dinner",
+      "drinks"
+    ],
     "instagram": "https://www.instagram.com/bygeorgeatl/",
     "michelin": "",
-    "heroImage": "https://platform.atlanta.eater.com/wp-content/uploads/sites/14/chorus/uploads/chorus_asset/file/19309560/ByGeorge_59.jpg?quality=90&strip=all&crop=0%2C0%2C100%2C100&w=1440"
+    "heroImage": "/images/by-george.webp"
   },
   {
     "id": "the-sun-dial",
@@ -96,10 +113,13 @@
     "mellieVerified": false,
     "mellieDescription": "",
     "description": "360-degree views of Atlanta from the Westin.",
-    "bestFor": ["dinner", "views"],
+    "bestFor": [
+      "dinner",
+      "views"
+    ],
     "instagram": "",
     "michelin": "",
-    "heroImage": "https://images.squarespace-cdn.com/content/v1/5a1c363cf14aa168f5288db9/1511815530260-XRUE0XSMJBJ3RHSCTUE0/The+Sun+Dial+Restaurant+-+View+Level+%282%29.jpg?format=2500w"
+    "heroImage": "/images/the-sun-dial.webp"
   },
   {
     "id": "homegrown",
@@ -113,10 +133,13 @@
     "mellieVerified": true,
     "mellieDescription": "Comfy chicken comes with orange slices.",
     "description": "Country-style Southern comfort food in a cozy diner.",
-    "bestFor": ["breakfast", "lunch"],
+    "bestFor": [
+      "breakfast",
+      "lunch"
+    ],
     "instagram": "",
     "michelin": "",
-    "heroImage": "https://assets.bonappetit.com/photos/570eaf73ee1756663f84d975/16:9/w_2240,c_limit/homegrown-counter-atlanta-lead-image-counter.jpg",
+    "heroImage": "/images/homegrown.webp",
     "website": "https://www.homegrownga.com/"
   },
   {
@@ -125,16 +148,20 @@
     "category": "short-ride",
     "address": "437 Memorial Dr SE, Atlanta, GA 30312",
     "lat": 33.7395,
-    "lng": -84.3720,
+    "lng": -84.372,
     "rating": 4.6,
     "priceLevel": 1,
     "mellieVerified": true,
     "mellieDescription": "Something sweet, something savory",
     "description": "Local chain bakery with excellent selection.",
-    "bestFor": ["breakfast", "coffee", "pastries"],
+    "bestFor": [
+      "breakfast",
+      "coffee",
+      "pastries"
+    ],
     "instagram": "",
     "michelin": "",
-    "heroImage": "https://scontent-atl3-2.cdninstagram.com/v/t51.82787-15/620319150_18103562956754045_8491985789088203780_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=101&ig_cache_key=MjIyNzE5NjE0MjcxMjYwNzc1MQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQueHBpZHMuMTQ0MC5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=9v_OF7Cxh0gQ7kNvwHgJKDX&_nc_oc=AdpYwstN-YexldEsdkqx2UzvGV7lohf3aI9RuWz0TqFLxgIbDHM_PuZPTmHE1VEc5qI&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-atl3-2.cdninstagram.com&_nc_gid=a4hHoDFVN7pld3mZGyibWg&_nc_ss=7a22e&oh=00_Af58B7ra2VEhiP0FFWWut71wnJVxiTYqmDkrXmA7eNP2kg&oe=6A112AF2"
+    "heroImage": "/images/little-tart.webp"
   },
   {
     "id": "madeira-park",
@@ -148,10 +175,13 @@
     "mellieVerified": true,
     "mellieDescription": "Lovely",
     "description": "Proper wine bar with great pairing dishes.",
-    "bestFor": ["dinner", "date-night"],
+    "bestFor": [
+      "dinner",
+      "date-night"
+    ],
     "instagram": "https://www.instagram.com/madeiraparkatl/?hl=en",
     "michelin": "",
-    "heroImage": "https://images.squarespace-cdn.com/content/v1/67564a36ddbeed7bd576673e/37861e3c-5713-4f1f-9edd-71fc3bae6d2a/MadeiraPark_1.jpg?format=2500w"
+    "heroImage": "/images/madeira-park.webp"
   },
   {
     "id": "antico",
@@ -165,44 +195,56 @@
     "mellieVerified": false,
     "mellieDescription": "",
     "description": "Famous wood-fired pizza.",
-    "bestFor": ["lunch", "pizza", "casual"],
+    "bestFor": [
+      "lunch",
+      "pizza",
+      "casual"
+    ],
     "instagram": "https://www.instagram.com/gioantico/",
     "michelin": "",
-    "heroImage": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2d/5f/61/c8/caption.jpg?w=1200&h=1200&s=1"
+    "heroImage": "/images/antico.webp"
   },
   {
     "id": "fox-bros",
     "name": "Fox Bros. Bar-B-Q",
     "category": "short-ride",
     "address": "1238 DeKalb Ave NE, Atlanta, GA 30307",
-    "lat": 33.7610,
+    "lat": 33.761,
     "lng": -84.3475,
     "rating": 4.5,
     "priceLevel": 2,
     "mellieVerified": true,
     "mellieDescription": "Frito pie",
     "description": "Texas-style BBQ joint with stomach-busting sides.",
-    "bestFor": ["lunch", "dinner", "bbq"],
+    "bestFor": [
+      "lunch",
+      "dinner",
+      "bbq"
+    ],
     "instagram": "",
     "michelin": "",
-    "heroImage": "https://i0.wp.com/barbecuebros.co/wp-content/uploads/2016/09/img_5691.jpg"
+    "heroImage": "/images/fox-bros.webp"
   },
   {
     "id": "kitty-dare",
     "name": "Kitty Dare",
     "category": "short-ride",
     "address": "1029 Edgewood Ave NE, Atlanta, GA 30307",
-    "lat": 33.7590,
+    "lat": 33.759,
     "lng": -84.3385,
     "rating": 4.4,
     "priceLevel": 2,
     "mellieVerified": true,
     "mellieDescription": "Walkable from MARTA",
     "description": "Labneh, lamb and pastas.",
-    "bestFor": ["lunch", "dinner", "seafood"],
+    "bestFor": [
+      "lunch",
+      "dinner",
+      "seafood"
+    ],
     "instagram": "https://www.instagram.com/kittydareatl/",
     "michelin": "",
-    "heroImage": "https://images.squarespace-cdn.com/content/v1/5b196ee731d4df831f0acadd/1730000893354-SEYKGNKOM7R88128PTZG/4L8A6358.jpg?format=2500w"
+    "heroImage": "/images/kitty-dare.webp"
   },
   {
     "id": "tiny-lous",
@@ -216,10 +258,14 @@
     "mellieVerified": false,
     "mellieDescription": "",
     "description": "French-inspired lounge in the legendary Hotel Clermont.",
-    "bestFor": ["drinks", "dinner", "cocktails"],
+    "bestFor": [
+      "drinks",
+      "dinner",
+      "cocktails"
+    ],
     "instagram": "",
     "michelin": "",
-    "heroImage": "https://media.cntraveler.com/photos/5d890e76d4b3fe0009348ce3/16:9/w_2240,c_limit/00-atlanta-Interior_Heidi-Geldhauser-Harris16.jpg"
+    "heroImage": "/images/tiny-lous.webp"
   },
   {
     "id": "busy-bee-cafe",
@@ -227,13 +273,17 @@
     "category": "soul-food",
     "address": "810 Martin Luther King Jr Dr SW, Atlanta, GA 30314",
     "lat": 33.7544,
-    "lng": -84.4140,
+    "lng": -84.414,
     "rating": 4.3,
     "priceLevel": 1,
     "mellieVerified": false,
     "mellieDescription": "",
     "description": "Historic soul food cafe, serving classics since 1947.",
-    "bestFor": ["lunch", "soul-food", "historic"],
+    "bestFor": [
+      "lunch",
+      "soul-food",
+      "historic"
+    ],
     "instagram": "",
     "michelin": "",
     "heroImage": "https://exploregeorgia.org/sites/default/files/styles/slideshow_large/public/busy-bee-james-beard-sign-atlanta-credit-gcalebjones.webp?itok=jOwjygUH"
@@ -244,16 +294,20 @@
     "category": "soul-food",
     "address": "224 Ponce de Leon Ave NE, Atlanta, GA 30308",
     "lat": 33.7729,
-    "lng": -84.3800,
+    "lng": -84.38,
     "rating": 4.2,
     "priceLevel": 2,
     "mellieVerified": false,
     "mellieDescription": "",
     "description": "An Atlanta institution.",
-    "bestFor": ["lunch", "southern", "historic"],
+    "bestFor": [
+      "lunch",
+      "southern",
+      "historic"
+    ],
     "instagram": "",
     "michelin": "",
-    "heroImage": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/12/75/4c/ef/photo0jpg.jpg?w=2000&h=-1&s=1"
+    "heroImage": "/images/mary-macs.webp"
   },
   {
     "id": "twisted-soul",
@@ -267,10 +321,14 @@
     "mellieVerified": true,
     "mellieDescription": "Amuse bouche",
     "description": "Modern soul food restaurant with novelty cocktails.",
-    "bestFor": ["dinner", "soul-food", "special-occasion"],
+    "bestFor": [
+      "dinner",
+      "soul-food",
+      "special-occasion"
+    ],
     "instagram": "https://www.instagram.com/twistedsoulcookhouse/",
     "michelin": "",
-    "heroImage": "https://platform.atlanta.eater.com/wp-content/uploads/sites/14/chorus/uploads/chorus_asset/file/19908847/18920199_1922220618040879_959942703649612209_n.jpg?quality=90&strip=all&crop=0%2C0%2C100%2C100&w=1440"
+    "heroImage": "/images/twisted-soul.webp"
   },
   {
     "id": "bacchanalia",
@@ -284,10 +342,14 @@
     "mellieVerified": false,
     "mellieDescription": "",
     "description": "Atlanta's fanciest fine dining since 1993.",
-    "bestFor": ["dinner", "fine-dining", "special-occasion"],
+    "bestFor": [
+      "dinner",
+      "fine-dining",
+      "special-occasion"
+    ],
     "instagram": "",
     "michelin": "",
-    "heroImage": "https://images.squarespace-cdn.com/content/v1/62e82b47d2d9de7b152b8f47/1677173745945-4AB8Y8PAR13EWYYQ2KBF/Bacchinalia-Interior.jpg?format=2500w"
+    "heroImage": "/images/bacchanalia.webp"
   },
   {
     "id": "hayakawa",
@@ -301,10 +363,14 @@
     "mellieVerified": true,
     "mellieDescription": "Get the uni upgrade",
     "description": "Intimate and unforgettable omakase experience.",
-    "bestFor": ["dinner", "omakase", "special-occasion"],
+    "bestFor": [
+      "dinner",
+      "omakase",
+      "special-occasion"
+    ],
     "instagram": "https://www.instagram.com/hayakawaatl/",
     "michelin": "",
-    "heroImage": "https://images.squarespace-cdn.com/content/v1/6346bd524697f07222eef0db/fa8fa243-78fa-488c-95a6-487e687f1b40/DSC00475_Original.jpg"
+    "heroImage": "/images/hayakawa.webp"
   },
   {
     "id": "lazy-betty",
@@ -318,9 +384,13 @@
     "mellieVerified": false,
     "mellieDescription": "",
     "description": "Highly regarded tasting menu with caviar options. Locals recommend the 4 course bar menu for best value.",
-    "bestFor": ["dinner", "tasting-menu", "special-occasion"],
+    "bestFor": [
+      "dinner",
+      "tasting-menu",
+      "special-occasion"
+    ],
     "instagram": "",
     "michelin": "",
-    "heroImage": "https://img.ctykit.com/cdn/ga-midtown/images/tr:w-1800/ppt-slide-lazy-betty-2024-by-graftable-ig-grftbl-14.png"
+    "heroImage": "/images/lazy-betty.webp"
   }
 ]
