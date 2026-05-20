@@ -237,6 +237,10 @@ const priceLevels = [1, 2, 3, 4];
           .addTo(map)
           .bindPopup(popupContent);
 
+        marker.on('click', () => {
+          (window as any).posthog?.capture('map_marker_clicked', { restaurant_id: restaurant.id, restaurant_name: restaurant.name, category: restaurant.category });
+        });
+
         markerData.push({ marker, restaurant });
       });
 
@@ -328,6 +332,7 @@ const priceLevels = [1, 2, 3, 4];
             activePrices.add(price);
             btn.setAttribute('aria-pressed', 'true');
           }
+          (window as any).posthog?.capture('map_filter_applied', { filter_type: 'price', value: price, active_prices: Array.from(activePrices), active_tags: Array.from(activeTags) });
           updateMapFilters();
         });
       });
@@ -342,6 +347,7 @@ const priceLevels = [1, 2, 3, 4];
             activeTags.add(tag);
             btn.setAttribute('aria-pressed', 'true');
           }
+          (window as any).posthog?.capture('map_filter_applied', { filter_type: 'tag', value: tag, active_prices: Array.from(activePrices), active_tags: Array.from(activeTags) });
           updateMapFilters();
         });
       });
@@ -351,10 +357,14 @@ const priceLevels = [1, 2, 3, 4];
         activeTags.clear();
         priceButtons.forEach((btn) => btn.setAttribute('aria-pressed', 'false'));
         tagButtons.forEach((btn) => btn.setAttribute('aria-pressed', 'false'));
+        (window as any).posthog?.capture('filter_cleared', { page: 'map' });
         updateMapFilters();
       });
     }
 
-    document.addEventListener('DOMContentLoaded', initMap);
+    document.addEventListener('DOMContentLoaded', () => {
+      (window as any).posthog?.capture('map_viewed');
+      initMap();
+    });
   </script>
 </Layout>
