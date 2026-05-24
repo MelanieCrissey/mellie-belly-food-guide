@@ -218,7 +218,6 @@ const priceLevels = [1, 2, 3, 4];
           activePrices.add(price);
           btn.setAttribute('aria-pressed', 'true');
         }
-        (window as any).posthog?.capture('filter_applied', { filter_type: 'price', value: price, active_prices: Array.from(activePrices), active_tags: Array.from(activeTags) });
         updateFilters();
       });
     });
@@ -233,7 +232,6 @@ const priceLevels = [1, 2, 3, 4];
           activeTags.add(tag);
           btn.setAttribute('aria-pressed', 'true');
         }
-        (window as any).posthog?.capture('filter_applied', { filter_type: 'tag', value: tag, active_prices: Array.from(activePrices), active_tags: Array.from(activeTags) });
         updateFilters();
       });
     });
@@ -243,7 +241,6 @@ const priceLevels = [1, 2, 3, 4];
       activeTags.clear();
       priceButtons.forEach((btn) => btn.setAttribute('aria-pressed', 'false'));
       tagButtons.forEach((btn) => btn.setAttribute('aria-pressed', 'false'));
-      (window as any).posthog?.capture('filter_cleared');
       updateFilters();
     });
   });
