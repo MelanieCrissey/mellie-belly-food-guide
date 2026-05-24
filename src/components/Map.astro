@@ -246,6 +246,25 @@
         </div>
       `;
       mellieSection.classList.remove('hidden');
+    } else if (restaurant.communityContributed) {
+      let creditHTML = '';
+      if (restaurant.communityCredit && restaurant.communityCredit.url) {
+        creditHTML = `<p class="text-gray-700 text-sm mt-2">Thank you, <a href="${restaurant.communityCredit.url}" target="_blank" rel="noopener noreferrer" class="text-brand-teal underline underline-offset-2 font-semibold hover:opacity-80">${restaurant.communityCredit.name}</a>!</p>`;
+      } else if (restaurant.communityCredit && restaurant.communityCredit.name) {
+        creditHTML = `<p class="text-gray-700 text-sm mt-2">Thank you, ${restaurant.communityCredit.name}!</p>`;
+      }
+      mellieSection.innerHTML = `
+        <div class="bg-teal-50 border border-brand-teal rounded-none p-4">
+          <div class="flex items-center gap-2">
+            <svg class="w-5 h-5 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21.44 11.05l-9.19 9.19a6 6 0 01-8.49-8.49l9.19-9.19a4 4 0 015.66 5.66l-9.2 9.19a2 2 0 01-2.83-2.83l8.49-8.48"/>
+            </svg>
+            <h3 class="font-display font-bold text-brand-teal uppercase">Community Contributed</h3>
+          </div>
+          ${creditHTML}
+        </div>
+      `;
+      mellieSection.classList.remove('hidden');
     } else {
       mellieSection.classList.add('hidden');
     }

@@ -266,6 +266,109 @@
     "heroImage": "/images/tiny-lous.webp"
   },
   {
+    "id": "hankook-taqueria",
+    "name": "Hankook Taqueria",
+    "category": "short-ride",
+    "address": "1341 Collier Rd NW, Atlanta, GA 30318",
+    "lat": 33.8075,
+    "lng": -84.4122,
+    "rating": 4.5,
+    "priceLevel": 1,
+    "mellieVerified": false,
+    "mellieDescription": "",
+    "communityContributed": true,
+    "communityCredit": {
+      "name": "toddl.dev",
+      "url": "https://toddl.dev/"
+    },
+    "description": "Korean-Mexican fusion tacos and burritos.",
+    "bestFor": [
+      "lunch",
+      "dinner"
+    ],
+    "instagram": "",
+    "michelin": "",
+    "heroImage": "/images/hankook-taqueria.webp"
+  },
+  {
+    "id": "rias-bluebird",
+    "name": "Ria's Bluebird",
+    "category": "short-ride",
+    "address": "421 Memorial Dr SE, Atlanta, GA 30312",
+    "lat": 33.7418,
+    "lng": -84.3755,
+    "rating": 4.5,
+    "priceLevel": 1,
+    "mellieVerified": false,
+    "mellieDescription": "",
+    "communityContributed": true,
+    "communityCredit": {
+      "name": "chance.dev",
+      "url": "https://chance.dev/"
+    },
+    "description": "Beloved breakfast and brunch spot with Southern flair.",
+    "note": "Closed Wednesdays",
+    "bestFor": [
+      "breakfast",
+      "brunch"
+    ],
+    "instagram": "",
+    "michelin": "",
+    "heroImage": "/images/rias-bluebird.webp"
+  },
+  {
+    "id": "fat-matts",
+    "name": "Fat Matt's",
+    "category": "short-ride",
+    "address": "1811 Piedmont Ave NE, Atlanta, GA 30324",
+    "lat": 33.8002,
+    "lng": -84.3654,
+    "rating": 4.4,
+    "priceLevel": 1,
+    "mellieVerified": false,
+    "mellieDescription": "",
+    "communityContributed": true,
+    "communityCredit": {
+      "name": "chance.dev",
+      "url": "https://chance.dev/"
+    },
+    "description": "No-frills BBQ joint with live blues music.",
+    "bestFor": [
+      "dinner",
+      "bbq",
+      "live-music"
+    ],
+    "instagram": "",
+    "michelin": "",
+    "heroImage": "/images/fat-matts.webp"
+  },
+  {
+    "id": "south-city-kitchen-midtown",
+    "name": "South City Kitchen Midtown",
+    "category": "short-ride",
+    "address": "1144 Crescent Ave NE, Atlanta, GA 30309",
+    "lat": 33.7866,
+    "lng": -84.3831,
+    "rating": 4.4,
+    "priceLevel": 2,
+    "mellieVerified": false,
+    "mellieDescription": "",
+    "communityContributed": true,
+    "communityCredit": {
+      "name": "chance.dev",
+      "url": "https://chance.dev/"
+    },
+    "description": "Upscale Southern cuisine in the heart of Midtown.",
+    "bestFor": [
+      "lunch",
+      "dinner",
+      "brunch"
+    ],
+    "instagram": "",
+    "michelin": "",
+    "heroImage": "/images/south-city-kitchen-midtown.webp"
+  },
+  {
     "id": "busy-bee-cafe",
     "name": "Busy Bee Cafe",
     "category": "soul-food",

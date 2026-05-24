@@ -1,5 +1,6 @@
 ---
 import MellieBadge from './MellieBadge.astro';
+import CommunityBadge from './CommunityBadge.astro';
 
 interface RestaurantCardProps {
   restaurant: {
@@ -10,7 +11,10 @@ interface RestaurantCardProps {
     priceLevel: number;
     mellieVerified: boolean;
     mellieDescription: string;
+    communityContributed?: boolean;
+    communityCredit?: { name: string; url?: string };
     description: string;
+    note?: string;
     bestFor: string[];
     address: string;
     lat: number;
@@ -60,6 +64,7 @@ const googleSearchUrl = `https://www.google.com/maps/search/?api=1&query=${encod
         <span class="text-gray-500 text-xs">({restaurant.rating.toFixed(1)})</span>
       </a>
       <MellieBadge verified={restaurant.mellieVerified} description={restaurant.mellieDescription} />
+      <CommunityBadge contributed={restaurant.communityContributed ?? false} credit={restaurant.communityCredit} />
     </div>
 
     <p class="text-gray-600 text-sm mb-3 line-clamp-2">{restaurant.description}</p>
@@ -131,5 +136,9 @@ const googleSearchUrl = `https://www.google.com/maps/search/?api=1&query=${encod
         </span>
       ))}
     </div>
+
+    {restaurant.note ? (
+      <p class="text-gray-500 text-xs mt-2 italic">{restaurant.note}</p>
+    ) : null}
   </div>
 </div>
