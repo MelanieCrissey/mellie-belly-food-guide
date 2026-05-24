@@ -1,6 +1,4 @@
 ---
-import PostHog from '../components/posthog.astro';
-
 interface Props {
   title?: string;
   description?: string;
@@ -44,7 +42,6 @@ const {
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <title>{title}</title>
-    <PostHog />
 
     <!-- Structured Data -->
     <script type="application/ld+json" set:html={JSON.stringify({

@@ -106,7 +106,6 @@
         .bindPopup(popupContent);
 
       marker.on('click', () => {
-        (window as any).posthog?.capture('map_marker_clicked', { restaurant_id: restaurant.id, restaurant_name: restaurant.name, category: restaurant.category });
         const card = document.querySelector(`[data-restaurant-id="${restaurant.id}"]`);
         if (card) {
           card.scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -166,7 +165,6 @@
     if (!json) return;
 
     const restaurant = JSON.parse(json);
-    (window as any).posthog?.capture('restaurant_card_clicked', { restaurant_id: restaurant.id, restaurant_name: restaurant.name, category: restaurant.category, price_level: restaurant.priceLevel });
     openModal(restaurant);
   });
 
@@ -185,7 +183,6 @@
       copyBtn.parentNode?.replaceChild(newCopyBtn, copyBtn);
       newCopyBtn.addEventListener('click', () => {
         navigator.clipboard.writeText(restaurant.address).then(() => {
-          (window as any).posthog?.capture('restaurant_address_copied', { restaurant_id: restaurant.id, restaurant_name: restaurant.name, source: 'modal' });
           newCopyBtn.querySelector('.copy-icon')?.classList.add('hidden');
           newCopyBtn.querySelector('.check-icon')?.classList.remove('hidden');
           setTimeout(() => {
@@ -260,11 +257,6 @@
 
     const directionsLink = modal.querySelector('#modal-directions') as HTMLAnchorElement;
     directionsLink.href = `https://www.google.com/maps/dir/?api=1&origin=230+John+Portman+Blwd+NW+Building+2,+Atlanta,+GA+30303&destination=${encodeURIComponent(restaurant.address)}`;
-    const newDirectionsLink = directionsLink.cloneNode(true) as HTMLAnchorElement;
-    directionsLink.parentNode?.replaceChild(newDirectionsLink, directionsLink);
-    newDirectionsLink.addEventListener('click', () => {
-      (window as any).posthog?.capture('restaurant_directions_clicked', { restaurant_id: restaurant.id, restaurant_name: restaurant.name, category: restaurant.category });
-    });
 
     modal.classList.remove('hidden');
     setTimeout(() => {
