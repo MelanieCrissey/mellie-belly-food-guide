@@ -13,7 +13,10 @@ interface CategorySectionProps {
     priceLevel: number;
     mellieVerified: boolean;
     mellieDescription: string;
+    communityContributed?: boolean;
+    communityCredit?: { name: string; url?: string };
     description: string;
+    note?: string;
     bestFor: string[];
     address: string;
     lat: number;
