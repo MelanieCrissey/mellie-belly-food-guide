@@ -80,6 +80,51 @@
     "heroImage": "/images/tyde-tate-kitchen.webp"
   },
   {
+    "id": "glide-pizza",
+    "name": "Glide Pizza South Downtown",
+    "category": "near-venue",
+    "address": "191 Mitchell St SW, Atlanta, GA 30303",
+    "lat": 33.7521,
+    "lng": -84.3955,
+    "rating": 4.6,
+    "priceLevel": 1,
+    "mellieVerified": false,
+    "mellieDescription": "",
+    "description": "Pizza by the slice. Cult favorite Ranch dressing.",
+    "bestFor": [
+      "lunch",
+      "dinner",
+      "late-night",
+      "pizza"
+    ],
+    "instagram": "",
+    "michelin": "",
+    "heroImage": "https://cdn.prod.website-files.com/68841d400cff4256b15b286a/6a3023076379445918310d53_glide_location_south_downtown_atlanta.webp",
+    "website": "https://www.glidepizza.com/"
+  },
+  {
+    "id": "dough-in-the-box",
+    "name": "Dough in the Box",
+    "category": "near-venue",
+    "address": "237 Mitchell St SW, Atlanta, GA 30303",
+    "lat": 33.7522,
+    "lng": -84.3954,
+    "rating": 4.4,
+    "priceLevel": 1,
+    "mellieVerified": true,
+    "mellieDescription": "Old-fashioned sour cream donut.",
+    "description": "Local donut chain with classic flavors.",
+    "bestFor": [
+      "breakfast",
+      "coffee",
+      "pastries"
+    ],
+    "instagram": "",
+    "michelin": "",
+    "heroImage": "https://whatnow.com/wp-content/uploads/2026/05/Dough-in-The-Box-Donuts-Adding-Fourth-Location.png",
+    "website": "https://doughinthebox.com/"
+  },
+  {
     "id": "by-george",
     "name": "By George at the Candler Hotel",
     "category": "near-venue",
