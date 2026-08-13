@@ -414,6 +414,30 @@
     "heroImage": "/images/south-city-kitchen-midtown.webp"
   },
   {
+    "id": "land-of-a-thousand-hills",
+    "name": "Land of a Thousand Hills Coffee",
+    "category": "near-venue",
+    "address": "84 Peachtree St. NW, Atlanta, GA 30303",
+    "lat": 33.7539,
+    "lng": -84.3901,
+    "rating": 4.5,
+    "priceLevel": 1,
+    "mellieVerified": false,
+    "mellieDescription": "",
+    "communityContributed": true,
+    "communityCredit": {
+      "name": "@TasonJorres",
+      "url": "https://x.com/TasonJorres"
+    },
+    "description": "Local coffee shop chain in iconic architectural space.",
+    "bestFor": [
+      "coffee"
+    ],
+    "instagram": "",
+    "michelin": "",
+    "heroImage": "/images/land-of-a-thousand-hills.avif"
+  },
+  {
     "id": "busy-bee-cafe",
     "name": "Busy Bee Cafe",
     "category": "soul-food",
